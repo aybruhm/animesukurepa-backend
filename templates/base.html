@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Anime Grator. Get the top nine query search.">
+    <meta name="keywords" content="anime, web scraping, aggregator, anime aggregator">
+    <link rel="stylesheet" href="{% static "assets/bootstrap/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "assets/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "assets/main.css" %}">
+    <title>Home | Aggregator</title>
+</head>
+
+<body>
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <a style="font-family: Cursive;" class="navbar-brand" href="{% url 'home' %}">Anime Grator</a>
+    </div>
+</nav>
+
+
+<main role="main">
+    <section class="jumbotron text-center bg-transparent">
+        <div class="container"><br><br>
+            <h1 style="font-family: Cursive;
+                font-size: 50px;" class="jumbotron-heading">Search for you favourite Anime.</h1>
+            <p class="lead text-muted">
+                Get the top nine result on your favourite anime for your query.
+            </p><br>
+
+            <form method="POST" action="{% url 'search' %}">
+                {% csrf_token %}
+            <div class=" input-group mb-3">
+                <div class="col-12">
+                    <input type="text" name="content" class="form-control mb-3" aria-label="username">
+                    <button type="submit" class="btn btn-outline-primary my-2">Search</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </section>
+
+
+</main>
+
+{% block content %}{% endblock %}
+
+    <footer class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a href="https://github.com/israelvictory" class="navbar-brand">Built with ❤ and 🎧</a>
+        </div>
+    </footer>
+
+    <script src="{% static "assets/bootstrap/js/jquery-1.10.2.js" %}"></script>
+    <script src="{% static "assets/bootstrap/js/bootstrap.js" %}"></script>
+    <script src="{% static "assets/bootstrap/js/bootstrap.min.js" %}"></script>
+</body>
+
+</html>
