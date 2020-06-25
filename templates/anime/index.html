@@ -12,6 +12,12 @@
         </div>
     </div><br><br>
 
+    {% for anime in anime_listings %}
+        <p>{{ anime.0 }}</p>
+        <p>{{ anime.1 }}</p>
+        <p>{{ anime.2 }}</p>
+    {% endfor %}
+
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -19,96 +25,6 @@
                     <img src="{% static "assets/images/img.jpg" %}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
                     <div class="card-body">
                         <h4 class="card-text">AXL IV</h4>
-                        <hr>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="/">
-                                    <button class="btn btn-md btn-outline-primary">View</button>
-                                </a>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static "assets/images/img.jpg" %}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                    <div class="card-body">
-                        <h4 class="card-text">Extraction</h4>
-                        <hr>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="/">
-                                    <button class="btn btn-md btn-outline-primary">View</button>
-                                </a>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static "assets/images/img.jpg" %}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                    <div class="card-body">
-                        <h4 class="card-text">Uchicha Madara: The Ten Tails</h4>
-                        <hr>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="/">
-                                    <button class="btn btn-md btn-outline-primary">View</button>
-                                </a>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static "assets/images/img.jpg" %}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                    <div class="card-body">
-                        <h4 class="card-text">Alter Carbon Sleveed</h4>
-                        <hr>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="/">
-                                    <button class="btn btn-md btn-outline-primary">View</button>
-                                </a>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static "assets/images/img.jpg" %}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                    <div class="card-body">
-                        <h4 class="card-text">Naruto Shipudden</h4>
-                        <hr>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="/">
-                                    <button class="btn btn-md btn-outline-primary">View</button>
-                                </a>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static "assets/images/img.jpg" %}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                    <div class="card-body">
-                        <h4 class="card-text">Detective Pikachu</h4>
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
