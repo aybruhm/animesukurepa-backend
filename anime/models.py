@@ -8,3 +8,7 @@ class Search(models.Model):
 
     def __str__(self):
         return self.search
+
+
+    class Meta:
+        verbose_name_plural = 'Searches'
