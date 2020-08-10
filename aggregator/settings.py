@@ -76,11 +76,31 @@ WSGI_APPLICATION = 'aggregator.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'd36qskqursnp6e',
+
+        'USER': 'xngnuxmjvbndnb',
+
+        'PASSWORD': 'fbc215eac44fea9d6ceea4aaca23ff61e07a0a83edcbbed21972825ae0e0d4ea',
+
+        'HOST': 'ec2-54-156-121-142.compute-1.amazonaws.com',
+
+        'PORT': 5432,
+
     }
+
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
