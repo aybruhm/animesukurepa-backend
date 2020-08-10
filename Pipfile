@@ -12,6 +12,7 @@ lxml = "*"
 bs4 = "*"
 whitenoise = "*"
 dj-database-url = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
