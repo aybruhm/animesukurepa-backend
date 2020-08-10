@@ -27,7 +27,7 @@ def search(request):
     soup = BeautifulSoup(data, 'lxml')
     # Extracting all the div's with the class 'last_episodes'
     anime_listings = soup.find('div', class_='last_episodes')
-
+    # Stores the scraped data into a list
     scraped_animes = []
 
     for anime in anime_listings.find_all('li'):
