@@ -1,6 +1,6 @@
 # Anime Aggregator (django-anime-scraper)
 
-### Anime aggregator is a web-based application that helps you pull anime on www19.gogoanime.io
+Anime aggregator is a web-based application that helps you pull anime on www19.gogoanime.io
 
 <br />
 To get it running on your local machine, follow the steps below:
