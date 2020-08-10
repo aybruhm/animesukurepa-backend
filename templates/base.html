@@ -25,9 +25,7 @@
         <div class="container"><br><br>
             <h1 style="font-family: Cursive;
                 font-size: 50px;" class="jumbotron-heading">Search for you favourite Anime.</h1>
-            <p class="lead text-muted">
-                Get the top nine result on your favourite anime for your query.
-            </p><br>
+            <br>
 
             <form method="POST" action="{% url 'search' %}">
             {% csrf_token %}

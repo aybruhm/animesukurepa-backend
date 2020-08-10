@@ -15,19 +15,17 @@ def home(request):
 def search(request):
     # Gets whatever you search for
     search = request.POST.get('title')
-
     # Saves whatever you search for into the database
     models.Search.objects.create(search=search)
-
     # Takes what you search for and inserts it in AnimeUrl(Original Url)
     searchURL = AnimeUrl.format(quote_plus(search))
-
     # this gets the whole URL address (e.g https://www19.gogoanime.io//search.html?keyword=whatever+you+searched+for)
     response = requests.get(searchURL)
-
+    # Extracting the source code of the page
     data = response.text
+    # Passing the source code to Beautiful Soup to create an object for it
     soup = BeautifulSoup(data, 'lxml')
-
+    # Extracting all the div's with the class 'last_episodes'
     anime_listings = soup.find('div', class_='last_episodes')
 
     scraped_animes = []
