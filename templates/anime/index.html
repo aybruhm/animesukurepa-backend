@@ -12,31 +12,25 @@
         </div>
     </div><br><br>
 
-    {% for anime in anime_listings %}
-        <p>{{ anime.0 }}</p>
-        <p>{{ anime.1 }}</p>
-        <p>{{ anime.2 }}</p>
-    {% endfor %}
-
+    
     <div class="container">
         <div class="row">
+        {% for anime in scraped_animes %}
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <img src="{% static "assets/images/img.jpg" %}" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
+                    <div class="card-image">
+                        <a href="https://www.gogoanime.movie/{{ anime.3 }}" target="_blank" title="">
+                            <img src="{{ anime.1 }}" style="height:250px; background: center;" class="card-img-top" alt="{{ anime.2 }}">
+                        </a>
+                    </div>
                     <div class="card-body">
-                        <h4 class="card-text">AXL IV</h4>
-                        <hr>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="/">
-                                    <button class="btn btn-md btn-outline-primary">View</button>
-                                </a>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
+                        <a href="https://www.gogoanime.movie/{{ anime.3 }}" target="_blank">
+                            <h4 class="card-text">{{ anime.0 }}</h4>
+                        </a>
                     </div>
                 </div>
             </div>
+        {% endfor %}
         </div>
     </div>
 </div>
