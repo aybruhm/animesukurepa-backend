@@ -27,7 +27,8 @@ def search(request):
     soup = BeautifulSoup(data, 'lxml')
     # Extracting all the div's with the class 'last_episodes'
     anime_listings = soup.find('div', class_='last_episodes')
-    # Stores the scraped data into a list
+
+    # Creates an empty list to store scraped_animes
     scraped_animes = []
 
     for anime in anime_listings.find_all('li'):
@@ -37,6 +38,7 @@ def search(request):
         img_alt = anime.find('img').get('alt')
         a_link = anime.find('a').get('href')
 
+        # Stores the scraped data into a list
         scraped_animes.append((title, img_src, img_alt, a_link))
 
     context = {'search': search, 'scraped_animes': scraped_animes}
