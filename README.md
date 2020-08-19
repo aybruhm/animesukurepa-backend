@@ -8,7 +8,7 @@ To get it running on your local machine, follow the steps below:
 1. Run the commands below in your terminal:
 
 ```
-git clone https://github.com/israelvictory/URI-Shortener.git
+git clone https://github.com/israelvictory/Anime-Aggregator.git
 ```
 
 2. Change directory to diary:
