@@ -12,34 +12,24 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container">
-        <a style="font-family: Cursive;" class="navbar-brand" href="{% url 'home' %}">Anime Grator</a>
-    </div>
-</nav>
+   <section id="home" class="text-center px-0 image">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="container">
+                <h1 class="jumbotron-heading text-white px-0">Search for you favourite Anime.</h1>
+                <br>
 
-
-<main role="main">
-    <section class="jumbotron text-center bg-transparent">
-        <div class="container"><br><br>
-            <h1 style="font-family: Cursive;
-                font-size: 50px;" class="jumbotron-heading">Search for you favourite Anime.</h1>
-            <br>
-
-            <form method="POST" action="{% url 'search' %}">
-            {% csrf_token %}
-            <div class=" input-group mb-3">
-                <div class="col-12">
-                    <input type="text" name="title" class="form-control mb-3" placeholder="Enter name of anime..">
-                    <button type="submit" class="btn btn-outline-primary my-2">Search</button>
-                </div>
+                <form method="POST" action="{% url 'search' %}">
+                {% csrf_token %}
+                    <div class=" input-group mb-3">
+                        <div class="col-12">
+                            <input type="text" name="title" class="form-control mb-3" placeholder="Enter name of anime..">
+                            <button type="submit" class="btn btn-outline-primary my-2">Search</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
     </section>
-
-
-</main>
 
 {% block content %}{% endblock %}
 
