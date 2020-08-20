@@ -22,3 +22,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('search-anime/', views.search, name="search"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
