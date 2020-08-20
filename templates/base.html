@@ -7,7 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Webscrape your favourite anime.">
     <meta name="keywords" content="anime, web scraping, aggregator, anime aggregator">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.css" integrity="sha512-x3xO3R+DjCWzHJDwNsIOXKE7RMWqIHnrXJgijDCzLbU6cH9i+v8rgnsZtIpnaf1x5apkwkj1jO9FDkUizkCvBw==" crossorigin="anonymous" />
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+    <style>
+    * {
+    padding: 0px;
+    margin: 0px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
+    body {
+        font-family: 'Baloo Tamma 2', cursive;
+    }
+
+    body,
+    main {
+        background: rgba(23, 45, 12, 0.2);
+    }
+
+    h2 {
+        font-size: 42px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    a:hover {
+        color: rgb(24, 5, 5);
+    }
+
+    #home {
+        background: url({% static 'img/naruto.jpg' %});
+        height: 500px;
+    }
+    </style>
     <title>Home - Aggregator</title>
 </head>
 
@@ -15,7 +50,7 @@
    <section id="home" class="text-center px-0 image">
         <div class="d-flex justify-content-center align-items-center h-100">
             <div class="container">
-                <h1 class="jumbotron-heading text-white px-0">Search for you favourite Anime.</h1>
+                <h1 class="jumbotron-heading text-white px-0">Search for you favourite Anime!</h1>
                 <br>
 
                 <form method="POST" action="{% url 'search' %}">
@@ -23,7 +58,7 @@
                     <div class=" input-group mb-3">
                         <div class="col-12">
                             <input type="text" name="title" class="form-control mb-3" placeholder="Enter name of anime..">
-                            <button type="submit" class="btn btn-outline-primary my-2">Search</button>
+                            <button type="submit" class="btn btn-primary my-2 mx-2">Search</button>
                         </div>
                     </div>
                 </form>
