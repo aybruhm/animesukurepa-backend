@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
 from anime import views
 
 urlpatterns = [
@@ -22,7 +23,3 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('search-anime/', views.search, name="search"),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
