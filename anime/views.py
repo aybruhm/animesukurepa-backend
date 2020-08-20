@@ -37,9 +37,10 @@ def search(request):
         img_src = anime.find('img').get('src')
         img_alt = anime.find('img').get('alt')
         a_link = anime.find('a').get('href')
+        releases = anime.find('p', class_="released").text
 
         # Stores the scraped data into a list
-        scraped_animes.append((title, img_src, img_alt, a_link))
+        scraped_animes.append((title, img_src, img_alt, a_link, releases))
 
     context = {'search': search, 'scraped_animes': scraped_animes}
     return render(request, 'anime/index.html', context)
