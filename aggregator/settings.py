@@ -25,7 +25,7 @@ SECRET_KEY = 'ot!-z3qmp+*)6asa9!$h7soy0xudt_c^8hb#q=3qnh9_jmmjw('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['aggregator-20.herokuapp.com', 'anime-aggregator.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['anime-aggregator.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
