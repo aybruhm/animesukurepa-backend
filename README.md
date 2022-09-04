@@ -1,6 +1,6 @@
-# Anime scraper (django-anime-scraper)
+# Animesukurepa
 
-Anime scraper is a web-based application that scrapes anime based on the user's search query
+Animesukurepa is a web-based application that scrapes anime based on the user's search query
 
 <br />
 
