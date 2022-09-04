@@ -1,24 +1,23 @@
-# Anime Aggregator (django-anime-scraper)
+# Anime scraper (django-anime-scraper)
 
-Anime aggregator is a web-based application that helps you pull anime on https://www.gogoanime.movie/
-
-# User Interface
-
-![Shortly User Interface](thumbnail.png)
+Anime scraper is a web-based application that scrapes anime based on the user's search query
 
 <br />
+
+## Installation
+
 To get it running on your local machine, follow the steps below:
 
 1. Run the commands below in your terminal:
 
 ```
-git clone https://github.com/israelvictory/Anime-Aggregator.git
+git clone git@github.com:israelabraham/animesukurepa-backend.git
 ```
 
-2. Change directory to diary:
+2. Change directory to animesukurepa-backend:
 
 ```
-cd Anime-Aggregator/aggregator
+cd animesukurepa-backend
 ```
 
 3. Install the requirements with the command below:
