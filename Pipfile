@@ -3,17 +3,38 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
+[[source]]
+url = "https://pypi.org/simple/"
+verify_ssl = true
+
+[[source]]
+url = "https://pypi.org/simple/"
+verify_ssl = true
+
 [dev-packages]
 
 [packages]
-django = "==3.1.6"
-requests = "*"
-lxml = "*"
-bs4 = "*"
-whitenoise = "*"
-dj-database-url = "*"
+django = "==3.0.7"
+requests = "==2.24.0"
+lxml = "==4.6.2"
+bs4 = "==0.0.1"
+whitenoise = "==5.2.0"
+dj-database-url = "==0.5.0"
 psycopg2 = "*"
-gunicorn = "*"
+gunicorn = "==20.0.4"
+asgiref = "==3.3.1"
+beautifulsoup4 = "==4.9.3"
+certifi = "==2020.12.5"
+chardet = "==3.0.4"
+idna = "==2.10"
+psycopg2-binary = "*"
+pytz = "==2020.5"
+soupsieve = "==2.1"
+sqlparse = "==0.4.1"
+urllib3 = "==1.25.11"
+djangorestframework = "*"
+python-decouple = "*"
+django-cors-headers = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
