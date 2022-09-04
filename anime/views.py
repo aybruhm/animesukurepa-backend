@@ -89,6 +89,14 @@ class AnimeSearch(views.APIView):
     
     @swagger_auto_schema(request_body=serializer_class)
     def post(self, request:Request) -> Response:
+        """
+        > The function takes in a request, validates the request, 
+        searches for an anime based on the name and returns a response
+        
+        :param request: The request object
+        :type request: Request
+        :return: A list of dictionaries.
+        """
         serializer = self.serializer_class(data=request.data)
         
         if serializer.is_valid():
