@@ -9,4 +9,4 @@ class SearchSerializer(serializers.ModelSerializer):
    
     class Meta:
         model = Search
-        field = ["search"]
+        fields = ["name"]
