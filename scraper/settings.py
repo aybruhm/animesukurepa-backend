@@ -24,33 +24,72 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['anime-scraper.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
 
-INSTALLED_APPS = [
+LOCAL_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'anime.apps.AnimeConfig',
+    
+    # whitenose
+    "whitenoise.runserver_nostatic",
+    "django.contrib.staticfiles",
 ]
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+OWN_APPS = [
+    "anime.apps.AnimeConfig",
 ]
+
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "corsheaders",
+    "drf_yasg",
+]
+
+INSTALLED_APPS = LOCAL_APPS + OWN_APPS + THIRD_PARTY_APPS
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    
+    # whitenoise middleware
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    
+    # cors headers middleware
+    "corsheaders.middleware.CorsMiddleware",
+    
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://lib-books.netlify.app",
+    "https://books-library.up.railway.app",
+]
+
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": (),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.AllowAny",
+    ),
+}
 
 ROOT_URLCONF = 'scraper.urls'
 
@@ -77,31 +116,11 @@ WSGI_APPLICATION = 'scraper.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': 'ddu42qrtgorvbo',
-
-        'USER': 'tqygzcadazlslv',
-
-        'PASSWORD': 'dbbc51fd037eccbcc7cdcdc77da574217ffd0f13c0659e90f2152611bf95b3ea',
-
-        'HOST': 'ec2-52-19-170-215.eu-west-1.compute.amazonaws.com',
-
-        'PORT': 5432,
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 
 # Password validation
@@ -138,12 +157,13 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_URL = "/static/"
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
