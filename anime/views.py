@@ -72,6 +72,7 @@ class AnimeSearch(views.APIView):
 
         # Creates an empty list to store scraped_animes
         scraped_animes = []
+        scraped_animes_dict = {}
 
         for anime in anime_listings.find_all('li'):
 
@@ -81,8 +82,15 @@ class AnimeSearch(views.APIView):
             a_link = anime.find('a').get('href')
             release = anime.find('p', class_="released").text 
 
-            # Stores the scraped data into a list
-            scraped_animes.append((title, img_src, img_alt, a_link, release))
+            # Stores the scraped data into a dict
+            scraped_animes_dict["title"] = title
+            scraped_animes_dict["image_src"] = img_src
+            scraped_animes_dict["image_alt"] = img_alt
+            scraped_animes_dict["link"] = config("BASE_URL") + a_link
+            scraped_animes_dict["release"] = release
+            
+            # Stores the dict into a list
+            scraped_animes.append(scraped_animes_dict)
             
             
         return scraped_animes, True
@@ -113,7 +121,7 @@ class AnimeSearch(views.APIView):
             if isTrue:
                 payload = success_response(
                     status=True, message=f"{name} anime searched",
-                    data={"animes": results}
+                    data=results
                 )
                 return Response(data=payload, status=status.HTTP_200_OK)
 
