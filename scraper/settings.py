@@ -75,8 +75,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://lib-books.netlify.app",
-    "https://books-library.up.railway.app",
+    "https://animesukurepa.netlify.app",
+    "https://animesukurepa.up.railway.app",
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
