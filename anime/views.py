@@ -3,6 +3,9 @@ from rest_framework import views,  status
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+# Native Imports
+import random
+
 # DRF Yasg Imports
 from drf_yasg.utils import swagger_auto_schema
 
@@ -59,8 +62,8 @@ class AnimeSearch(views.APIView):
         #     ...
         
         # Takes what you search for and inserts it in anime_url(Original Url)
-        searchURL = anime_url.format(self.quote_search_keyword(keyword=keyword))
-        response = httpx.get(searchURL)
+        search_url = anime_url.format(self.quote_search_keyword(keyword=keyword))
+        response = httpx.get(search_url)
         
         # Extracting the source code of the page
         data = response.text
@@ -68,30 +71,22 @@ class AnimeSearch(views.APIView):
         soup = BeautifulSoup(data, 'lxml')
         
         # Extracting all the div's with the class 'last_episodes'
-        anime_listings = soup.find('div', class_='last_episodes')
+        anime_listings = soup.find('div', class_='main_body').find('div', class_='last_episodes')
 
         # Creates an empty list to store scraped_animes
         scraped_animes = []
-        scraped_animes_dict = {}
 
-        for anime in anime_listings.find_all('li'):
+        for anime in anime_listings.find("ul").find_all("li"):
 
             title = anime.find('p', class_='name').text
             img_src = anime.find('img').get('src')
             img_alt = anime.find('img').get('alt')
             a_link = anime.find('a').get('href')
             release = anime.find('p', class_="released").text 
-
-            # Stores the scraped data into a dict
-            scraped_animes_dict["title"] = title
-            scraped_animes_dict["image_src"] = img_src
-            scraped_animes_dict["image_alt"] = img_alt
-            scraped_animes_dict["link"] = config("BASE_URL") + a_link
-            scraped_animes_dict["release"] = release
             
             # Stores the dict into a list
-            scraped_animes.append(scraped_animes_dict)
-            
+            link = config("BASE_URL") + a_link
+            scraped_animes.append({"id": random.randint(1, 999), "title": title, "image_src": img_src, "image_alt": img_alt, "anime_link": link, "release": release})
             
         return scraped_animes, True
     
