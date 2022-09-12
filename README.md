@@ -5,6 +5,9 @@ Animesukurepa is a web-based application that scrapes anime based on the user's 
 ## Docs
 ![animesukurepa-backend-docs](https://user-images.githubusercontent.com/55067204/188333436-dc9db2f8-ebb3-44e3-ac8a-f0ae4d1cf356.png)
 
+## Frontend 
+Link to [repository](https://github.com/israelabraham/anime-scraper-react)
+
 ## Installation
 
 To get it running on your local machine, follow the steps below:
