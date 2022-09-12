@@ -3,6 +3,10 @@ from rest_framework import views,  status
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+# Django Imports
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
+
 # Native Imports
 import random
 
@@ -24,15 +28,19 @@ from decouple import config
 from rest_api_payload import success_response, error_response
 
 
-
 anime_url = config("ANIME_URL")
+
+
+def backend_home(request:HttpRequest) -> HttpResponse:
+    return render(request, "anime/home.html")
 
 
 class AnimeSearch(views.APIView):
     serializer_class = SearchSerializer
     
     def quote_search_keyword(self, keyword:str, safe="", encoding=None, errors=None):
-        """Like quote(), but also replace ' ' with '+', as required for quoting
+        """
+        Like quote(), but also replace ' ' with '+', as required for quoting
         HTML form values. Plus signs in the original string are escaped unless
         they are included in safe. It also does not have safe default to '/'.
         """
