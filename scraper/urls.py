@@ -8,9 +8,12 @@ from django.conf.urls.static import static
 # Rest Framework Imports
 from rest_framework import permissions
 
-# DRF Yasg Imports``
+# DRF Yasg Imports
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+
+# Own Imports
+from anime.views import backend_home
 
 
 schema_view = get_schema_view(
@@ -26,14 +29,16 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    
-    # api v1 endpoints
-    path("api/v1/", include("anime.urls")),
-    
-    # api documentation endpoints
-    re_path(r'^generate_api_documentation(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    re_path(r'^docs/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+   path('admin/', admin.site.urls),
+   
+   path("", backend_home, name="home"),
+   
+   # api v1 endpoints
+   path("api/v1/", include("anime.urls")),
+   
+   # api documentation endpoints
+   re_path(r'^generate_api_documentation(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+   re_path(r'^docs/$', schema_view.with_ui('swagger', cache_timeout=0), name='api_docs'),
 ]
 
 if settings.DEBUG:
