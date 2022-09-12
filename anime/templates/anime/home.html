@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Animesukurepa
+{% endblock title %}
+
+{% block content %}
+<div class="service">
+    <h2 class="service-title text-white">Animesukurepa<span class="green-check">.</span></h2>
+    <p class="h5 text-white">Server is Up and Running</p>
+
+    <div class="service__btns">
+        <a href="mailto:israelvictory87@gmail.com" class="service-contact text-white">Contact</a>
+        <a href="{% url 'api_docs' %}" class="service-docs">Docs</a>
+    </div>
+</div>
+{% endblock %}
