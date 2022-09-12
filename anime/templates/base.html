@@ -1,0 +1,149 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Poppins Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        * {
+            font-family: 'Poppins';
+        }
+
+        body,
+        html {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        div.container {
+            max-width: 50%;
+            margin: auto;
+        }
+
+        div.service {
+            text-align: center;
+            padding-top: 20rem;
+        }
+
+        div.service>h2.service-title {
+            font-size: 58px;
+            font-weight: 700;
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+            line-height: 25px;
+        }
+
+        div.service>p.h5 {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .green-check {
+            color: rgb(22, 207, 22);
+        }
+
+        div.service__btns {
+            padding-top: 30px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a.service-contact,
+        a.service-docs {
+            background: #000;
+            border: 2px solid #fff;
+            padding: 12px 35px;
+        }
+
+        a.service-docs {
+            background: #fff;
+            padding: 12px 35px;
+            border: 2px dotted #fff;
+            color: #000;
+        }
+
+        @media screen and (max-width: 850px) {
+
+            div.container {
+                max-width: 100%;
+            }
+
+            div.service>h2.service-title {
+                line-height: 40px;
+            }
+        }
+
+        @media screen and (max-width: 489px) {
+
+            div.container {
+                max-width: 100%;
+            }
+
+            div.service {
+                padding-top: 10rem;
+            }
+
+            div.service>h2.service-title {
+                line-height: 30px;
+                font-size: 48px;
+            }
+
+            div.service__btns {
+                padding-top: 20px;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+
+            div.service {
+                padding-top: 8rem;
+            }
+
+            div.service>h2.service-title {
+                line-height: 5px;
+                font-size: 32px;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/israelabraham/url-shortener-frontend/main/public/favicon.ico"
+        type="image/x-icon">
+
+    <!-- Title -->
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+
+    <section class="main__container">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </section>
+
+</body>
+
+</html>
